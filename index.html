@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Labor Intelligence v1.2 · BPS</title>
+<title>Labor Intelligence v1.4 · T&amp;L Solution</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -272,8 +272,8 @@ tr:hover td{background:var(--light)}
 <aside id="sidebar">
   <div class="sb-logo">
     <div class="sb-ic">LI</div>
-    <div><div class="sb-name">Labor Intelligence</div><div class="sb-tag">BPS &middot; Plataforma</div></div>
-    <div class="sb-ver">v1.2</div>
+    <div><div class="sb-name">Labor Intelligence</div><div class="sb-tag">T&amp;L Solution</div></div>
+    <div class="sb-ver">v1.4</div>
   </div>
   <div class="sb-sec">
     <span class="sb-lbl">General</span>
@@ -300,12 +300,12 @@ tr:hover td{background:var(--light)}
 </aside>
 
 <div id="main">
-  <div class="ver-bar"><span class="vdot"></span>Labor Intelligence &mdash; v1.2 &mdash; Build 2025.04.22 &mdash; BPS &middot; Plataforma</div>
+  <div class="ver-bar"><span class="vdot"></span>Labor Intelligence &mdash; v1.4 &mdash; Build 2025.04.22 &mdash; T&amp;L Solution</div>
   <div class="topbar">
     <span class="tb-t" id="tbt">Dashboard</span>
     <span class="tb-s" id="tbs">Vista general</span>
     <div class="tb-sp"></div>
-    <span class="tb-ver">v1.2</span>
+    <span class="tb-ver">v1.4</span>
     <div class="fg2">
       <button class="btn bs btn-sm" id="btn-upload-top">&#8593; Subir docs</button>
       <button class="btn bp btn-sm" id="btn-nueva-acr">+ Nueva Acreditaci&oacute;n</button>
@@ -396,57 +396,117 @@ tr:hover td{background:var(--light)}
   </div>
 
   <div id="tp-acr-analisis" style="display:none">
-    <div class="g2 mb16">
-      <div class="card">
-        <div class="card-h"><div><div class="card-t">Checklist Documental &mdash; Ingreso Faena</div><div class="card-s">Caso: Ana Torres Vega &mdash; Servicios Atacama &mdash; C-2024-015</div></div><button class="btn bg btn-sm" id="btn-analizar-docs">&#9654; Analizar</button></div>
-        <div class="dck" id="doc-checklist">
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">C&eacute;dula de identidad vigente</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Contrato de trabajo firmado</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Examen pre-ocupacional</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducción SSO (Empresa)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducción ODI (Mandante)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Hoja de vida del trabajador</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-          <div class="dck-item miss"><span class="dck-ic">&#10060;</span><span class="dck-n">CIAFF (Cert. Insp. Ant. Faena y Func.)</span><span class="dck-s" style="color:var(--red)">Faltante</span></div>
-          <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Licencia conducir (si aplica)</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+
+  <!-- API KEY CONFIG BANNER -->
+  <div id="api-config-banner" style="background:linear-gradient(135deg,#1a2332,#243042);border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;border:1px solid rgba(134,188,37,.25)">
+    <div style="font-size:24px;flex-shrink:0">&#128273;</div>
+    <div style="flex:1">
+      <div style="color:#fff;font-size:12.5px;font-weight:700;margin-bottom:3px">Configuraci&oacute;n del Agente IA</div>
+      <div style="color:rgba(255,255,255,.5);font-size:10.5px">Ingres&aacute; tu API Key de Anthropic para activar el an&aacute;lisis documental con inteligencia artificial real.</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+      <input type="password" id="anthropic-api-key" placeholder="sk-ant-api03-..." style="width:240px;padding:7px 11px;border-radius:7px;border:1px solid rgba(134,188,37,.4);background:rgba(255,255,255,.06);color:#fff;font-size:11.5px;font-family:JetBrains Mono,monospace;outline:none" oninput="checkApiKey()">
+      <button id="btn-save-key" class="ab ab-p" onclick="saveApiKey()" style="white-space:nowrap">&#10003; Guardar</button>
+      <button id="btn-clear-key" class="ab ab-g" onclick="clearApiKey()" style="white-space:nowrap;display:none">Cambiar</button>
+    </div>
+    <div id="api-status-dot" style="width:9px;height:9px;border-radius:50%;background:#5A6A7A;flex-shrink:0;margin-left:4px" title="Sin API Key"></div>
+  </div>
+
+  <div class="g2 mb16">
+    <!-- CHECKLIST PANEL -->
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <div class="card-t">Checklist Documental &mdash; Ingreso a Faena</div>
+          <div class="card-s" id="checklist-worker-label">Caso: Ana Torres Vega &mdash; Servicios Atacama &mdash; C-2024-015</div>
+        </div>
+        <div style="display:flex;gap:7px">
+          <select id="worker-select" class="fi" style="width:160px;padding:4px 8px;font-size:11px" onchange="changeWorker(this.value)">
+            <option value="ana">Ana Torres V. &mdash; Atacama</option>
+            <option value="pedro">Pedro Soto D. &mdash; Mant. Ltda</option>
+            <option value="valentina">Valentina Cruz &mdash; Min. Austral</option>
+            <option value="jorge">Jorge Vega &mdash; Trans Andina</option>
+          </select>
+          <button class="btn bp btn-sm" id="btn-run-agent-ia">&#9654; Analizar con IA</button>
         </div>
       </div>
-      <div class="card">
-        <div class="card-h"><div class="card-t">Resultado del An&aacute;lisis IA</div></div>
-        <div id="agent-log" class="alog">
-<span class="alog-t">[09:14:02]</span> Iniciando an&aacute;lisis documental...<br>
-<span class="alog-t">[09:14:03]</span> Cargando expediente: Ana Torres Vega (15.234.567-K)<br>
-<span class="alog-t">[09:14:04]</span> <span class="alog-r">&#10003; C&eacute;dula identidad &mdash; v&aacute;lida hasta 12/2027</span><br>
-<span class="alog-t">[09:14:05]</span> <span class="alog-r">&#10003; Contrato trabajo &mdash; firmado ambas partes, DT registrado</span><br>
-<span class="alog-t">[09:14:06]</span> <span class="alog-r">&#10003; Examen pre-ocupacional &mdash; apto, emitido 15/04/2025</span><br>
-<span class="alog-t">[09:14:07]</span> <span class="alog-r">&#10003; Inducci&oacute;n SSO &mdash; certificado v&aacute;lido, 8 hrs completadas</span><br>
-<span class="alog-t">[09:14:08]</span> <span class="alog-r">&#10003; ODI Mandante &mdash; completada 18/04/2025</span><br>
-<span class="alog-t">[09:14:09]</span> <span class="alog-r">&#10003; Hoja de vida &mdash; cargada y validada</span><br>
-<span class="alog-t">[09:14:10]</span> <span class="alog-e">&#10007; CIAFF &mdash; DOCUMENTO NO ENCONTRADO en expediente</span><br>
-<span class="alog-t">[09:14:11]</span> <span class="alog-w">&#9888; Licencia conducir &mdash; requerimiento pendiente de confirmar</span><br>
-<span class="alog-t">[09:14:12]</span> ----------------------------------------<br>
-<span class="alog-t">[09:14:12]</span> RESULTADO: <span class="alog-w">OBSERVADO (6/8 documentos)</span><br>
-<span class="alog-t">[09:14:12]</span> ACCI&Oacute;N: Solicitar CIAFF a empresa Servicios Atacama<br>
-<span class="alog-t">[09:14:12]</span> Notificaci&oacute;n autom&aacute;tica enviada a admin. contrato C-2024-015
+
+      <div class="dck" id="doc-checklist">
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">C&eacute;dula de identidad vigente</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Contrato de trabajo firmado</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Examen pre-ocupacional</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducci&oacute;n SSO (8 hrs)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducci&oacute;n ODI (Mandante)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Hoja de vida del trabajador</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
+        <div class="dck-item miss"><span class="dck-ic">&#10060;</span><span class="dck-n">CIAFF (Cert. Insp. Ant. Faena y Func.)</span><span class="dck-s" style="color:var(--red)">Faltante</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Licencia conducir (si aplica)</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+      </div>
+
+      <!-- Upload area for this worker -->
+      <div style="margin-top:12px;border-top:1px solid var(--border);padding-top:12px">
+        <div style="font-size:10.5px;font-weight:700;color:var(--mid);margin-bottom:7px">SUBIR DOCUMENTOS FALTANTES</div>
+        <div class="uz" style="padding:14px" id="doc-upload-zone" onclick="document.getElementById('doc-file-inp').click()">
+          <div style="font-size:22px;margin-bottom:4px">&#128196;</div>
+          <div style="font-size:11.5px;font-weight:700">Arrastr&aacute; el CIAFF u otros docs</div>
+          <div class="tm">PDF, imagen &mdash; el agente los analizar&aacute; autom&aacute;ticamente</div>
         </div>
-        <div style="margin-top:10px;display:flex;gap:8px">
-          <button class="btn bp btn-sm" id="btn-notif-acr">&#128233; Notificar empresa</button>
-          <button class="btn bg btn-sm">&#128196; Exportar informe</button>
-        </div>
+        <input type="file" id="doc-file-inp" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleDocUpload(event)">
+        <div id="uploaded-docs-list" style="margin-top:8px"></div>
       </div>
     </div>
+
+    <!-- AGENT LOG PANEL -->
     <div class="card">
-      <div class="card-h"><div class="card-t">Cola de an&aacute;lisis pendientes</div><div class="card-s">5 expedientes aguardando validaci&oacute;n autom&aacute;tica</div></div>
-      <div class="tw"><table>
-        <tr><th>Trabajador</th><th>RUT</th><th>Empresa</th><th>Contrato</th><th>Docs subidos</th><th>Estado</th><th></th></tr>
-        <tr><td>Ana Torres V.</td><td class="mono">15.234.567-K</td><td>Servicios Atacama</td><td class="mono">C-2024-015</td><td>6/8</td><td><span class="p pw">Observado</span></td><td><button class="btn bg btn-xs">Analizar</button></td></tr>
-        <tr><td>Pedro Soto D.</td><td class="mono">9.876.543-2</td><td>Mantenimientos Ltda</td><td class="mono">C-2023-088</td><td>5/8</td><td><span class="p pr2">Rechazado</span></td><td><button class="btn bg btn-xs">Analizar</button></td></tr>
-        <tr><td>Valentina Cruz L.</td><td class="mono">14.555.666-7</td><td>Miner&iacute;a Austral</td><td class="mono">C-2024-031</td><td>3/8</td><td><span class="p pw">Incompleto</span></td><td><button class="btn bg btn-xs">Analizar</button></td></tr>
-        <tr><td>Jorge Vega M.</td><td class="mono">16.777.888-3</td><td>Trans Andina SA</td><td class="mono">C-2022-067</td><td>7/8</td><td><span class="p pw">Observado</span></td><td><button class="btn bg btn-xs">Analizar</button></td></tr>
-      </table></div>
+      <div class="card-h">
+        <div>
+          <div class="card-t">Resultado del Agente IA</div>
+          <div class="card-s" id="agent-model-label">Modelo: Claude Sonnet &mdash; An&aacute;lisis documental laboral</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="btn bg btn-sm" id="btn-export-analysis" style="display:none">&#128196; Exportar</button>
+          <button class="btn bg btn-sm" onclick="clearAgentLog()">&#128473; Limpiar</button>
+        </div>
+      </div>
+
+      <div id="agent-log" class="alog" style="min-height:180px">
+        <span class="alog-t">// Agente listo. Presion&aacute; "Analizar con IA" para iniciar.</span><br>
+        <span class="alog-t">// Con API Key: an&aacute;lisis real con Claude.</span><br>
+        <span class="alog-t">// Sin API Key: simulaci&oacute;n demostrativa.</span>
+      </div>
+
+      <!-- AI REAL RESPONSE AREA -->
+      <div id="ai-response-area" style="display:none;margin-top:12px;border:1px solid var(--g5);border-radius:8px;padding:14px;background:var(--g4)">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px">
+          <div style="width:22px;height:22px;background:var(--g1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:800">AI</div>
+          <div style="font-size:11px;font-weight:700;color:var(--g1)">Diagn&oacute;stico generado por Claude</div>
+        </div>
+        <div id="ai-response-text" style="font-size:12px;line-height:1.6;color:var(--dark)"></div>
+      </div>
+
+      <div style="margin-top:10px;display:flex;gap:7px">
+        <button class="btn bp btn-sm" id="btn-notif-empresa" style="display:none" onclick="notifEmpresa()">&#128233; Notificar empresa</button>
+        <button class="btn bg btn-sm" id="btn-ver-popup-agent" style="display:none" onclick="verAnalisisEnPopup()">&#128202; Ver en detalle</button>
+      </div>
     </div>
   </div>
 
-  <div id="tp-acr-agenda" style="display:none">
+  <!-- COLA DE ANÁLISIS -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-t">Cola de An&aacute;lisis Pendientes</div>
+      <div class="card-s">5 expedientes aguardando validaci&oacute;n</div>
+    </div>
+    <div class="tw"><table>
+      <tr><th>Trabajador</th><th>RUT</th><th>Empresa</th><th>Contrato</th><th>Docs subidos</th><th>Faltan</th><th>Estado</th><th></th></tr>
+      <tr><td>Ana Torres V.</td><td class="mono">15.234.567-K</td><td>Serv. Atacama</td><td class="mono">C-2024-015</td><td>6/8</td><td>CIAFF, licencia</td><td><span class="p pw">Observado</span></td><td><button class="btn bg btn-xs" onclick="selectWorkerAndAnalyze('ana')">Analizar</button></td></tr>
+      <tr><td>Pedro Soto D.</td><td class="mono">9.876.543-2</td><td>Mant. Ltda</td><td class="mono">C-2023-088</td><td>5/8</td><td>Examen altura, CIAFF, licencia</td><td><span class="p pr2">Rechazado</span></td><td><button class="btn bg btn-xs" onclick="selectWorkerAndAnalyze('pedro')">Analizar</button></td></tr>
+      <tr><td>Valentina Cruz L.</td><td class="mono">14.555.666-7</td><td>Min. Austral</td><td class="mono">C-2024-031</td><td>3/8</td><td>Contrato, ODI, CIAFF, lic.</td><td><span class="p pw">Incompleto</span></td><td><button class="btn bg btn-xs" onclick="selectWorkerAndAnalyze('valentina')">Analizar</button></td></tr>
+      <tr><td>Jorge Vega M.</td><td class="mono">16.777.888-3</td><td>Trans Andina</td><td class="mono">C-2022-067</td><td>7/8</td><td>Hoja de vida</td><td><span class="p pw">Observado</span></td><td><button class="btn bg btn-xs" onclick="selectWorkerAndAnalyze('jorge')">Analizar</button></td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div id="tp-acr-agenda" style="display:none">
     <div class="card"><div class="card-h"><div class="card-t">Calendario de Agendamiento &mdash; Semana 21&ndash;25 Abr</div><button class="btn bp btn-sm">+ Nuevo slot</button></div><div id="ag-grid" style="display:grid;grid-template-columns:70px repeat(5,1fr);gap:5px"></div></div>
   </div>
 
@@ -817,7 +877,13 @@ tr:hover td{background:var(--light)}
     </div>
     <button class="kh-cl" id="kira-close">&#10005;</button>
   </div>
-  <div class="vm" id="kira-msgs">
+    <!-- KIRA API KEY STRIP -->
+  <div id="kira-api-strip" style="padding:7px 12px;background:#0f1922;border-bottom:1px solid rgba(134,188,37,.2);display:flex;align-items:center;gap:8px;flex-shrink:0">
+    <span style="font-size:9px;font-weight:700;color:rgba(134,188,37,.6);font-family:'JetBrains Mono',monospace;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px">API Key</span>
+    <input type="password" id="kira-api-key-input" placeholder="sk-ant-api03-..." style="flex:1;padding:3px 8px;border-radius:5px;border:1px solid rgba(134,188,37,.25);background:rgba(255,255,255,.05);color:#86BC25;font-size:10px;font-family:'JetBrains Mono',monospace;outline:none" oninput="syncApiKey(this.value)">
+    <div id="kira-key-status" style="width:7px;height:7px;border-radius:50%;background:#5A6A7A;flex-shrink:0" title="Sin clave"></div>
+  </div>
+<div class="vm" id="kira-msgs">
     <div class="vmsg bot">
       <div class="vav bot">V</div>
       <div class="vb">Hola Pablo! Soy <strong>KIRA</strong> &mdash; tu asistente de Knowledge Intelligence Risk Advisor. Tengo acceso en tiempo real a todos los m&oacute;dulos. &iquest;En qu&eacute; te ayudo?</div>
@@ -878,7 +944,7 @@ tr:hover td{background:var(--light)}
 // ============================================================
 // LABOR INTELLIGENCE v1.1
 // ============================================================
-var VER = 'v1.2';
+var VER = 'v1.4';
 
 // ── VIEW NAVIGATION ──────────────────────────────────────────
 var VIEW_META = {
@@ -1643,6 +1709,489 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('kira-input') && (document.getElementById('kira-input').value = '\u00bfAlertas cr\u00edticas?');
     sendKira();
   });
+});
+
+
+
+// ============================================================
+// LABOR INTELLIGENCE v1.4 — FUNCTIONAL AI ENGINE
+// ============================================================
+
+// ── API KEY MANAGEMENT ───────────────────────────────────────
+var ANTHROPIC_API_KEY = '';
+
+function saveApiKey() {
+  var val = document.getElementById('anthropic-api-key').value.trim();
+  if (!val || !val.startsWith('sk-ant')) {
+    showToast('\u26a0\ufe0f API Key inv\u00e1lida \u2014 debe empezar con sk-ant...');
+    return;
+  }
+  ANTHROPIC_API_KEY = val;
+  localStorage.setItem('li_api_key', val);
+  updateApiStatus(true);
+  showToast('\u2713 API Key guardada \u2014 Agente IA activado');
+}
+
+function clearApiKey() {
+  ANTHROPIC_API_KEY = '';
+  localStorage.removeItem('li_api_key');
+  document.getElementById('anthropic-api-key').value = '';
+  var ki = document.getElementById('kira-api-key-input');
+  if (ki) ki.value = '';
+  updateApiStatus(false);
+  showToast('API Key eliminada');
+}
+
+function syncApiKey(val) {
+  ANTHROPIC_API_KEY = val.trim();
+  if (ANTHROPIC_API_KEY.startsWith('sk-ant')) {
+    localStorage.setItem('li_api_key', ANTHROPIC_API_KEY);
+    updateApiStatus(true);
+    // Sync to acreditacion field too
+    var af = document.getElementById('anthropic-api-key');
+    if (af && af.value !== ANTHROPIC_API_KEY) af.value = ANTHROPIC_API_KEY;
+  } else {
+    updateApiStatus(false);
+  }
+}
+
+function updateApiStatus(active) {
+  var dot = document.getElementById('api-status-dot');
+  var kdot = document.getElementById('kira-key-status');
+  var saveBtn = document.getElementById('btn-save-key');
+  var clearBtn = document.getElementById('btn-clear-key');
+  var strip = document.getElementById('kira-api-strip');
+  if (dot) { dot.style.background = active ? '#86BC25' : '#5A6A7A'; dot.title = active ? 'API Key activa' : 'Sin API Key'; }
+  if (kdot) { kdot.style.background = active ? '#86BC25' : '#5A6A7A'; }
+  if (saveBtn) saveBtn.style.display = active ? 'none' : '';
+  if (clearBtn) clearBtn.style.display = active ? '' : 'none';
+  if (strip) strip.style.borderBottomColor = active ? 'rgba(134,188,37,.4)' : 'rgba(134,188,37,.15)';
+  var label = document.getElementById('agent-model-label');
+  if (label) label.textContent = active ? 'Modelo: Claude Sonnet \u2014 An\u00e1lisis documental laboral (ACTIVO)' : 'Modelo: Claude Sonnet \u2014 Sin API Key (modo demo)';
+}
+
+// Load saved key on startup
+(function loadSavedKey() {
+  var saved = localStorage.getItem('li_api_key');
+  if (saved) {
+    ANTHROPIC_API_KEY = saved;
+    var af = document.getElementById('anthropic-api-key');
+    if (af) af.value = saved;
+    var ki = document.getElementById('kira-api-key-input');
+    if (ki) ki.value = saved;
+    updateApiStatus(true);
+  }
+})();
+
+// ── WORKER DATA FOR AGENT ────────────────────────────────────
+var WORKERS = {
+  'ana': {
+    name: 'Ana Torres Vega', rut: '15.234.567-K', empresa: 'Servicios Atacama', contrato: 'C-2024-015',
+    docs_ok: ['C\u00e9dula identidad (v\u00e1lida hasta 12/2027)', 'Contrato de trabajo firmado', 'Examen pre-ocupacional (apto, 15/04/2025)', 'Inducci\u00f3n SSO (8 hrs certificadas)', 'Inducci\u00f3n ODI Mandante (18/04/2025)', 'Hoja de vida'],
+    docs_miss: ['CIAFF (Cert. Insp. Ant. Faena y Func.)'],
+    docs_pend: ['Licencia de conducir (requiere confirmaci\u00f3n)'],
+    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'pend',n:'Licencia conducir (si aplica)'}]
+  },
+  'pedro': {
+    name: 'Pedro Soto D\u00edaz', rut: '9.876.543-2', empresa: 'Mantenimientos Ltda', contrato: 'C-2023-088',
+    docs_ok: ['C\u00e9dula identidad', 'Contrato trabajo', 'Inducci\u00f3n SSO', 'Hoja de vida', 'Inducci\u00f3n ODI'],
+    docs_miss: ['Examen de altura vencido (emitido 05/11/2022, vigencia 2 a\u00f1os)', 'CIAFF'],
+    docs_pend: ['Licencia de conducir'],
+    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'miss',n:'Examen pre-ocupacional (VENCIDO)'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'miss',n:'Licencia conducir'}]
+  },
+  'valentina': {
+    name: 'Valentina Cruz L\u00f3pez', rut: '14.555.666-7', empresa: 'Miner\u00eda Austral', contrato: 'C-2024-031',
+    docs_ok: ['C\u00e9dula identidad', 'Hoja de vida', 'Examen pre-ocupacional'],
+    docs_miss: ['Contrato de trabajo firmado', 'Inducci\u00f3n SSO', 'Inducci\u00f3n ODI', 'CIAFF'],
+    docs_pend: ['Licencia de conducir'],
+    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'miss',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'miss',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'miss',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'pend',n:'Licencia conducir'}]
+  },
+  'jorge': {
+    name: 'Jorge Vega M\u00e9ndez', rut: '16.777.888-3', empresa: 'Trans Andina SA', contrato: 'C-2022-067',
+    docs_ok: ['C\u00e9dula identidad', 'Contrato trabajo firmado', 'Examen pre-ocupacional', 'Inducci\u00f3n SSO', 'Inducci\u00f3n ODI', 'CIAFF', 'Licencia conducir clase B'],
+    docs_miss: ['Hoja de vida actualizada'],
+    docs_pend: [],
+    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'miss',n:'Hoja de vida del trabajador'},{t:'ok',n:'CIAFF'},{t:'ok',n:'Licencia conducir (Clase B)'}]
+  }
+};
+
+var currentWorker = 'ana';
+
+function changeWorker(val) {
+  currentWorker = val;
+  var w = WORKERS[val];
+  document.getElementById('checklist-worker-label').textContent = 'Caso: ' + w.name + ' \u2014 ' + w.empresa + ' \u2014 ' + w.contrato;
+  renderChecklist(w);
+  clearAgentLog();
+}
+
+function renderChecklist(w) {
+  var el = document.getElementById('doc-checklist');
+  if (!el) return;
+  var icons = {ok:'&#9989;',miss:'&#10060;',pend:'&#9203;'};
+  var labels = {ok:'Validado',miss:'Faltante',pend:'Pendiente'};
+  var colors = {ok:'var(--g1)',miss:'var(--red)',pend:'var(--yellow)'};
+  el.innerHTML = w.checklist.map(function(d) {
+    return '<div class="dck-item ' + d.t + '"><span class="dck-ic">' + icons[d.t] + '</span><span class="dck-n">' + d.n + '</span><span class="dck-s" style="color:' + colors[d.t] + '">' + labels[d.t] + '</span></div>';
+  }).join('');
+}
+
+function selectWorkerAndAnalyze(workerKey) {
+  currentWorker = workerKey;
+  var sel = document.getElementById('worker-select');
+  if (sel) sel.value = workerKey;
+  changeWorker(workerKey);
+  // Switch to analisis tab
+  showTab('acr', 'analisis');
+  // Auto-run after short delay
+  setTimeout(runDocumentAgentIA, 300);
+}
+
+function clearAgentLog() {
+  var log = document.getElementById('agent-log');
+  if (log) log.innerHTML = '<span class="alog-t">// Log limpiado. Listo para nuevo an\u00e1lisis.</span>';
+  var aiArea = document.getElementById('ai-response-area');
+  if (aiArea) aiArea.style.display = 'none';
+  var exportBtn = document.getElementById('btn-export-analysis');
+  if (exportBtn) exportBtn.style.display = 'none';
+  var notifBtn = document.getElementById('btn-notif-empresa');
+  if (notifBtn) notifBtn.style.display = 'none';
+  var popupBtn = document.getElementById('btn-ver-popup-agent');
+  if (popupBtn) popupBtn.style.display = 'none';
+}
+
+function appendLog(cls, text) {
+  var log = document.getElementById('agent-log');
+  if (!log) return;
+  var span = document.createElement('span');
+  span.className = cls;
+  span.textContent = text;
+  log.appendChild(span);
+  log.appendChild(document.createElement('br'));
+  log.scrollTop = log.scrollHeight;
+}
+
+function getTimestamp() {
+  var now = new Date();
+  return '[' + now.toTimeString().slice(0,8) + ']';
+}
+
+// ── AGENT DOCUMENTAL REAL ────────────────────────────────────
+function runDocumentAgentIA() {
+  var w = WORKERS[currentWorker];
+  if (!w) return;
+
+  var log = document.getElementById('agent-log');
+  var btn = document.getElementById('btn-run-agent-ia');
+  if (!log || !btn) return;
+
+  log.innerHTML = '';
+  btn.disabled = true;
+  btn.textContent = 'Analizando...';
+
+  var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
+  var ts = getTimestamp();
+
+  // Step 1: show loading log
+  var steps = [
+    ['alog-t', ts + ' Iniciando an\u00e1lisis documental ' + (hasKey ? '(IA real)' : '(demo)') + '...'],
+    ['alog-t', ts + ' Cargando expediente: ' + w.name + ' (' + w.rut + ')'],
+    ['alog-t', ts + ' Empresa: ' + w.empresa + ' \u2014 Contrato: ' + w.contrato],
+    ['alog-t', ts + ' Verificando ' + w.checklist.length + ' requisitos documentales...'],
+  ];
+  w.docs_ok.forEach(function(d) { steps.push(['alog-r', ts + ' \u2713 ' + d]); });
+  w.docs_miss.forEach(function(d) { steps.push(['alog-e', ts + ' \u2717 ' + d + ' \u2014 DOCUMENTO FALTANTE']); });
+  w.docs_pend.forEach(function(d) { steps.push(['alog-w', ts + ' \u26a0 ' + d]); });
+
+  var ok = w.docs_ok.length;
+  var miss = w.docs_miss.length;
+  var pend = w.docs_pend.length;
+  var total = ok + miss + pend;
+  var result = miss === 0 ? 'APROBADO' : (ok >= total * 0.75 ? 'OBSERVADO' : 'RECHAZADO');
+  var resultCls = miss === 0 ? 'alog-r' : (result === 'OBSERVADO' ? 'alog-w' : 'alog-e');
+
+  steps.push(['alog-t', ts + ' ----------------------------------------']);
+  steps.push([resultCls, ts + ' RESULTADO: ' + result + ' (' + ok + '/' + total + ' documentos)']);
+  if (miss > 0) steps.push(['alog-t', ts + ' ACCI\u00d3N: Solicitar documento(s) faltante(s) a ' + w.empresa]);
+
+  var i = 0;
+  function addStep() {
+    if (i >= steps.length) {
+      btn.disabled = false;
+      btn.textContent = '\u25b6 Analizar con IA';
+      document.getElementById('btn-notif-empresa').style.display = '';
+      document.getElementById('btn-ver-popup-agent').style.display = '';
+      document.getElementById('btn-export-analysis').style.display = '';
+
+      if (hasKey) {
+        callAnthropicDocAgent(w, result, ok, total);
+      } else {
+        showDemoResponse(w, result, ok, total);
+      }
+      return;
+    }
+    appendLog(steps[i][0], steps[i][1]);
+    i++;
+    setTimeout(addStep, hasKey ? 120 : 200);
+  }
+  addStep();
+}
+
+function showDemoResponse(w, result, ok, total) {
+  var miss = w.docs_miss.join(', ');
+  var text = '[DEMO \u2014 sin API Key] ' + result + ': El expediente de ' + w.name + ' (' + w.rut + ') presenta ' + ok + '/' + total + ' documentos v\u00e1lidos.' + (miss ? ' Documentos faltantes: ' + miss + '. Se recomienda notificar a ' + w.empresa + ' para regularizaci\u00f3n.' : ' Expediente completo. Aprobado para acreditaci\u00f3n.');
+  showAiResponse(text, false);
+}
+
+async function callAnthropicDocAgent(w, result, ok, total) {
+  var aiArea = document.getElementById('ai-response-area');
+  var aiText = document.getElementById('ai-response-text');
+  if (aiArea) aiArea.style.display = 'block';
+  if (aiText) aiText.innerHTML = '<span style="color:var(--mid);font-style:italic">Claude est\u00e1 analizando el expediente...</span>';
+
+  var prompt = 'Eres un agente especializado en compliance laboral chileno. Analiz\u00e1 el siguiente expediente de acreditaci\u00f3n de faena:\n\nTrabajador: ' + w.name + '\nRUT: ' + w.rut + '\nEmpresa: ' + w.empresa + '\nContrato: ' + w.contrato + '\n\nDocumentos validados: ' + w.docs_ok.join(', ') + '\nDocumentos faltantes: ' + (w.docs_miss.join(', ') || 'Ninguno') + '\nDocumentos pendientes de confirmaci\u00f3n: ' + (w.docs_pend.join(', ') || 'Ninguno') + '\n\nResultado preliminar: ' + result + ' (' + ok + '/' + (ok + w.docs_miss.length + w.docs_pend.length) + ' documentos).\n\nPor favor redact\u00e1 un diagn\u00f3stico profesional en espa\u00f1ol (3-4 oraciones) indicando: (1) estado del expediente, (2) impacto de los documentos faltantes seg\u00fan la normativa laboral chilena, (3) acci\u00f3n recomendada para el l\u00edder de servicio. S\u00e9 conciso y profesional.';
+
+  try {
+    var resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-5', max_tokens: 400, messages: [{ role: 'user', content: prompt }] })
+    });
+    var data = await resp.json();
+    if (data.content && data.content[0]) {
+      showAiResponse(data.content[0].text, true);
+      appendLog('alog-r', getTimestamp() + ' \u2713 An\u00e1lisis IA completado por Claude.');
+    } else {
+      showAiResponse('Error: ' + JSON.stringify(data.error || data), false);
+    }
+  } catch(e) {
+    showAiResponse('Error de conexi\u00f3n: ' + e.message + '. Verific\u00e1 tu API Key y conexi\u00f3n.', false);
+  }
+}
+
+function showAiResponse(text, isReal) {
+  var aiArea = document.getElementById('ai-response-area');
+  var aiText = document.getElementById('ai-response-text');
+  if (aiArea) aiArea.style.display = 'block';
+  if (aiText) {
+    var badge = isReal ? '<span style="display:inline-block;background:var(--g1);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">IA REAL</span>' : '<span style="display:inline-block;background:var(--mid);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">DEMO</span>';
+    aiText.innerHTML = badge + text.replace(/\n/g, '<br>');
+  }
+}
+
+function notifEmpresa() {
+  var w = WORKERS[currentWorker];
+  showToast('\u2713 Notificaci\u00f3n enviada a administrador ' + (w ? w.contrato : '') + ' \u2014 ' + (w ? w.empresa : ''));
+}
+
+function verAnalisisEnPopup() {
+  var w = WORKERS[currentWorker];
+  if (!w) return;
+  var ok = w.docs_ok.length;
+  var total = w.checklist.length;
+  var miss = w.docs_miss.length;
+  var result = miss === 0 ? 'APROBADO' : (ok >= total * 0.75 ? 'OBSERVADO' : 'RECHAZADO');
+  var color = miss === 0 ? 'var(--g1)' : (result === 'OBSERVADO' ? 'var(--yellow)' : 'var(--red)');
+
+  openKiraPopup('An\u00e1lisis Documental \u2014 ' + w.name, w.empresa + ' \u2014 ' + w.contrato, function(body) {
+    var rows = w.checklist.map(function(d) {
+      var icons = {ok:'\u2705',miss:'\u274c',pend:'\u23f3'};
+      var labs = {ok:'Validado',miss:'Faltante',pend:'Pendiente'};
+      var cols = {ok:'var(--g1)',miss:'var(--red)',pend:'var(--yellow)'};
+      return ['<span style="font-size:14px">' + icons[d.t] + '</span>', d.n, '<strong style="color:' + cols[d.t] + '">' + labs[d.t] + '</strong>'];
+    });
+
+    body.innerHTML =
+      '<div class="kp-kpi-grid">' +
+        kpKPI(ok + '/' + total, 'Documentos v\u00e1lidos', ok === total ? 'var(--g1)' : 'var(--yellow)') +
+        kpKPI(miss, 'Faltantes', miss > 0 ? 'var(--red)' : 'var(--g1)') +
+        kpKPI(w.docs_pend.length, 'Pendientes confirmaci\u00f3n', 'var(--yellow)') +
+        kpKPI('<span style="font-size:13px;font-weight:800">' + result + '</span>', 'Resultado', color) +
+      '</div>' +
+      '<div class="kp-tabs">' +
+        '<button class="kp-tab active" onclick="kpSwitch(this,\'agd\',\'check\')">Checklist</button>' +
+        '<button class="kp-tab" onclick="kpSwitch(this,\'agd\',\'resumen\')">Resumen</button>' +
+      '</div>' +
+      '<div id="agd-check" class="kp-section active">' + kpTable(['\u00cdcono', 'Documento', 'Estado'], rows) + '</div>' +
+      '<div id="agd-resumen" class="kp-section">' +
+        '<div style="display:flex;flex-direction:column;gap:10px;padding:4px 0">' +
+          '<div><div style="font-size:11px;font-weight:700;color:var(--mid);margin-bottom:4px">DOCUMENTOS VALIDADOS</div>' +
+          w.docs_ok.map(function(d){ return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)">\u2705 ' + d + '</div>'; }).join('') + '</div>' +
+          (miss > 0 ? '<div><div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:4px">DOCUMENTOS FALTANTES</div>' + w.docs_miss.map(function(d){ return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #FFCDD2;color:var(--red)">\u274c ' + d + '</div>'; }).join('') + '</div>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="kp-insight"><strong>Acci\u00f3n recomendada:</strong> ' + (miss === 0 ? 'Expediente completo. Aprobar acreditaci\u00f3n de ' + w.name + ' para ingreso a faena.' : 'Solicitar a ' + w.empresa + ' los documentos faltantes (' + w.docs_miss.join(', ') + ') antes de aprobar el ingreso de ' + w.name + ' a faena. No puede ingresar sin CIAFF.') + '</div>';
+  });
+}
+
+function handleDocUpload(e) {
+  var files = Array.from(e.target.files);
+  var list = document.getElementById('uploaded-docs-list');
+  if (!list || !files.length) return;
+  files.forEach(function(f) {
+    var item = document.createElement('div');
+    item.className = 'di';
+    item.style.marginBottom = '5px';
+    item.innerHTML = '<span style="font-size:16px">\ud83d\udcc4</span><div style="flex:1"><div style="font-size:11.5px;font-weight:600">' + f.name + '</div><div class="tm">Subido \u2014 clasificando con IA...</div></div><span class="p pw">Procesando</span>';
+    list.appendChild(item);
+    setTimeout(function() {
+      var s = item.querySelector('.p');
+      if (s) { s.className = 'p po'; s.textContent = 'Recibido'; }
+      var m = item.querySelector('.tm');
+      if (m) m.textContent = 'Clasificado: ' + (f.name.toLowerCase().includes('ciaff') ? 'CIAFF detectado \u2014 agregado al expediente' : 'Documento laboral');
+      // Auto-update checklist if CIAFF detected
+      if (f.name.toLowerCase().includes('ciaff')) {
+        var w = WORKERS[currentWorker];
+        if (w) {
+          w.docs_miss = w.docs_miss.filter(function(d){ return !d.includes('CIAFF'); });
+          w.docs_ok.push('CIAFF (subido ' + new Date().toLocaleDateString('es-CL') + ')');
+          w.checklist = w.checklist.map(function(d){ return d.n.includes('CIAFF') ? {t:'ok',n:'CIAFF (reci\u00e9n cargado)'} : d; });
+          renderChecklist(w);
+          showToast('\u2713 CIAFF detectado y agregado al expediente');
+        }
+      }
+    }, 2000);
+  });
+}
+
+// ── KIRA WITH REAL ANTHROPIC API ────────────────────────────
+var kiraConversationHistory = [];
+
+var KIRA_SYSTEM_PROMPT = 'Sos KIRA (Knowledge Intelligence Risk Advisor), el asistente de inteligencia artificial de la plataforma Labor Intelligence v1.4 de T&L Solution. Tu especialidad es el compliance laboral chileno y la gesti\u00f3n de contratos de empresas contratistas y subcontratistas.\n\nTen\u00e9s acceso a los siguientes datos del portafolio actual:\n\nCONTRATOS ACTIVOS:\n- C-2024-001: Constructora JMC | 450 trabajadores | Brechas: Remun. $6M + Causa O-2024-1234 $4.2M + IC Sindicato N\u00b01 vence 05/06/2025 (1.240 trab.) + 12 brechas HSE\n- C-2024-015: Servicios Atacama | 320 trabajadores | F30-1 observado $770K | 3 credenciales vencidas | 12 por vencer en 7 d\u00edas\n- C-2023-088: Mantenimientos Ltda | 180 trabajadores | Cumplimiento 98%\n- C-2024-022: Ingenier\u00eda del Norte | 620 trabajadores | IC Uni\u00f3n Norte vence 19/07/2025\n- C-2022-067: Trans Andina SA | 280 trabajadores | Cierre: 7 finiquitos sin dep\u00f3sito $4.8M + Causa O-2024-0892 $1.8M + Brecha remun. $1.1M\n- C-2024-031: Miner\u00eda Austral | 290 trabajadores | 8 brechas HSE | Causa nueva O-2025-0102 $1.1M\n- C-2023-099: LogiMiner\u00eda Ltda | 185 trabajadores | Brecha previsi\u00f3n $880K\n\nESTAD\u00cdSTICAS GLOBALES:\n- 14.382 trabajadores acreditados | 387 empresas | 34 causas judiciales activas ($18.4M) | 7 alertas cr\u00edticas\n\nRespond\u00e9 siempre en espa\u00f1ol, de forma concisa y profesional. Cuando corresponda, mencion\u00e1 los n\u00fameros de contrato y montos espec\u00edficos. Si el usuario pregunta algo fuera de tu dominio, indicalo amablemente.';
+
+async function sendKiraWithAPI(userMsg) {
+  var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
+
+  kiraConversationHistory.push({ role: 'user', content: userMsg });
+
+  if (hasKey) {
+    // Real API call
+    addKiraMsg('bot', '<span style="color:var(--mid);font-style:italic;font-size:11px">KIRA est\u00e1 procesando tu consulta...</span>');
+    var lastMsgEl = document.getElementById('kira-msgs').lastElementChild;
+
+    try {
+      var resp = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-5',
+          max_tokens: 600,
+          system: KIRA_SYSTEM_PROMPT,
+          messages: kiraConversationHistory
+        })
+      });
+      var data = await resp.json();
+      if (data.content && data.content[0]) {
+        var answer = data.content[0].text;
+        kiraConversationHistory.push({ role: 'assistant', content: answer });
+        // Replace the "processing" bubble
+        if (lastMsgEl) lastMsgEl.remove();
+        addKiraMsg('bot', answer.replace(/\n/g, '<br>') + '<div style="margin-top:5px;font-size:9px;color:rgba(255,255,255,.35);font-family:JetBrains Mono,monospace">KIRA \u00b7 Claude Sonnet \u00b7 IA real</div>');
+        // Check if should also open popup
+        checkAndOpenKiraPopup(userMsg.toLowerCase());
+      } else {
+        if (lastMsgEl) lastMsgEl.remove();
+        addKiraMsg('bot', 'Error al conectar con la IA: ' + JSON.stringify(data.error || data));
+      }
+    } catch(e) {
+      if (lastMsgEl) lastMsgEl.remove();
+      addKiraMsg('bot', 'Error de conexi\u00f3n: ' + e.message);
+    }
+  } else {
+    // Demo mode — use pre-built responses + open popup
+    rmKiraTyping();
+    var m = userMsg.toLowerCase();
+    var demoResp;
+    if (m.indexOf('alerta') > -1 || m.indexOf('cr\u00edtic') > -1) {
+      demoResp = KIRA_RESP['alerta'];
+      setTimeout(kiraShowBrechas, 600);
+    } else if (m.indexOf('jmc') > -1 || m.indexOf('constructora') > -1) {
+      demoResp = KIRA_RESP['jmc'];
+      setTimeout(kiraShowJMC, 600);
+    } else if (m.indexOf('informe') > -1 || m.indexOf('reporte') > -1) {
+      demoResp = KIRA_RESP['informe'];
+      setTimeout(kiraShowInforme, 600);
+    } else if (m.indexOf('credencial') > -1) {
+      demoResp = KIRA_RESP['credencial'];
+      setTimeout(kiraShowCredenciales, 600);
+    } else if (m.indexOf('trans') > -1) {
+      demoResp = KIRA_RESP['trans'];
+    } else {
+      demoResp = KIRA_RESP['def'] + '<div style="margin-top:5px;font-size:9px;color:rgba(255,255,255,.35);font-family:JetBrains Mono,monospace">Modo demo \u00b7 Ingres\u00e1 tu API Key para respuestas reales</div>';
+    }
+    kiraConversationHistory.push({ role: 'assistant', content: demoResp });
+    addKiraMsg('bot', demoResp);
+  }
+}
+
+function checkAndOpenKiraPopup(msg) {
+  if (msg.indexOf('brecha') > -1 || msg.indexOf('alerta') > -1) setTimeout(kiraShowBrechas, 800);
+  else if (msg.indexOf('jmc') > -1 || msg.indexOf('constructora') > -1) setTimeout(kiraShowJMC, 800);
+  else if (msg.indexOf('credencial') > -1) setTimeout(kiraShowCredenciales, 800);
+  else if (msg.indexOf('informe') > -1) setTimeout(kiraShowInforme, 800);
+}
+
+// Override sendKira to use new system
+function sendKira() {
+  var inp = document.getElementById('kira-input') || document.getElementById('vera-input');
+  var msg = (inp ? inp.value : '').trim();
+  if (!msg) return;
+  addKiraMsg('user', msg);
+  if (inp) inp.value = '';
+
+  var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
+  if (hasKey) {
+    sendKiraWithAPI(msg);
+  } else {
+    addKiraTyping();
+    setTimeout(function() {
+      rmKiraTyping();
+      sendKiraWithAPI(msg); // will use demo mode
+    }, 800 + Math.random() * 400);
+  }
+}
+
+// Wire up API key inputs on DOMContentLoaded (added to existing listener)
+document.addEventListener('DOMContentLoaded', function() {
+  // Agent analysis button
+  var runBtn = document.getElementById('btn-run-agent-ia');
+  if (runBtn) runBtn.addEventListener('click', runDocumentAgentIA);
+
+  // Worker select
+  var wsel = document.getElementById('worker-select');
+  if (wsel) wsel.addEventListener('change', function() { changeWorker(this.value); });
+
+  // Sync API key between both inputs
+  var mainKey = document.getElementById('anthropic-api-key');
+  var kiraKey = document.getElementById('kira-api-key-input');
+  if (mainKey) mainKey.addEventListener('input', function() {
+    if (kiraKey) kiraKey.value = this.value;
+    syncApiKey(this.value);
+  });
+  if (kiraKey) kiraKey.addEventListener('input', function() {
+    if (mainKey) mainKey.value = this.value;
+    syncApiKey(this.value);
+  });
+
+  // Save / clear key buttons
+  var saveBtn = document.getElementById('btn-save-key');
+  if (saveBtn) saveBtn.addEventListener('click', saveApiKey);
+  var clearBtn = document.getElementById('btn-clear-key');
+  if (clearBtn) clearBtn.addEventListener('click', clearApiKey);
+
+  // Load persisted key
+  var saved = localStorage.getItem('li_api_key');
+  if (saved) {
+    ANTHROPIC_API_KEY = saved;
+    if (mainKey) mainKey.value = saved;
+    if (kiraKey) kiraKey.value = saved;
+    updateApiStatus(true);
+  }
 });
 
 </script>
