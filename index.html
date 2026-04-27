@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Labor Intelligence v1.4 · T&amp;L Solution</title>
+<title>Labor Intelligence v1.5 · T&amp;L Solution</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -273,7 +273,7 @@ tr:hover td{background:var(--light)}
   <div class="sb-logo">
     <div class="sb-ic">LI</div>
     <div><div class="sb-name">Labor Intelligence</div><div class="sb-tag">T&amp;L Solution</div></div>
-    <div class="sb-ver">v1.4</div>
+    <div class="sb-ver">v1.5</div>
   </div>
   <div class="sb-sec">
     <span class="sb-lbl">General</span>
@@ -300,12 +300,12 @@ tr:hover td{background:var(--light)}
 </aside>
 
 <div id="main">
-  <div class="ver-bar"><span class="vdot"></span>Labor Intelligence &mdash; v1.4 &mdash; Build 2025.04.22 &mdash; T&amp;L Solution</div>
+  <div class="ver-bar"><span class="vdot"></span>Labor Intelligence &mdash; v1.5 &mdash; Build 2025.04.22 &mdash; T&amp;L Solution</div>
   <div class="topbar">
     <span class="tb-t" id="tbt">Dashboard</span>
     <span class="tb-s" id="tbs">Vista general</span>
     <div class="tb-sp"></div>
-    <span class="tb-ver">v1.4</span>
+    <span class="tb-ver">v1.5</span>
     <div class="fg2">
       <button class="btn bs btn-sm" id="btn-upload-top">&#8593; Subir docs</button>
       <button class="btn bp btn-sm" id="btn-nueva-acr">+ Nueva Acreditaci&oacute;n</button>
@@ -432,13 +432,13 @@ tr:hover td{background:var(--light)}
       </div>
 
       <div class="dck" id="doc-checklist">
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">C&eacute;dula de identidad vigente</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Contrato de trabajo firmado</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Examen pre-ocupacional</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducci&oacute;n SSO (8 hrs)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Inducci&oacute;n ODI (Mandante)</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item ok"><span class="dck-ic">&#9989;</span><span class="dck-n">Hoja de vida del trabajador</span><span class="dck-s" style="color:var(--g1)">Validado</span></div>
-        <div class="dck-item miss"><span class="dck-ic">&#10060;</span><span class="dck-n">CIAFF (Cert. Insp. Ant. Faena y Func.)</span><span class="dck-s" style="color:var(--red)">Faltante</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">C&eacute;dula de identidad vigente</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Contrato de trabajo firmado</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Examen pre-ocupacional</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Inducci&oacute;n SSO (8 hrs)</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Inducci&oacute;n ODI (Mandante)</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Hoja de vida del trabajador</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
+        <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">CIAFF</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
         <div class="dck-item pend"><span class="dck-ic">&#9203;</span><span class="dck-n">Licencia conducir (si aplica)</span><span class="dck-s" style="color:var(--yellow)">Pendiente</span></div>
       </div>
 
@@ -944,7 +944,7 @@ tr:hover td{background:var(--light)}
 // ============================================================
 // LABOR INTELLIGENCE v1.1
 // ============================================================
-var VER = 'v1.4';
+var VER = 'v1.5';
 
 // ── VIEW NAVIGATION ──────────────────────────────────────────
 var VIEW_META = {
@@ -1714,7 +1714,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // ============================================================
-// LABOR INTELLIGENCE v1.4 — FUNCTIONAL AI ENGINE
+// LABOR INTELLIGENCE v1.5 — FUNCTIONAL AI ENGINE
 // ============================================================
 
 // ── API KEY MANAGEMENT ───────────────────────────────────────
@@ -1783,56 +1783,120 @@ function updateApiStatus(active) {
   }
 })();
 
+
 // ── WORKER DATA FOR AGENT ────────────────────────────────────
 var WORKERS = {
   'ana': {
-    name: 'Ana Torres Vega', rut: '15.234.567-K', empresa: 'Servicios Atacama', contrato: 'C-2024-015',
+    name: 'Ana Torres Vega', rut: '15.234.567-K',
+    empresa: 'Servicios Atacama', contrato: 'C-2024-015',
     docs_ok: ['C\u00e9dula identidad (v\u00e1lida hasta 12/2027)', 'Contrato de trabajo firmado', 'Examen pre-ocupacional (apto, 15/04/2025)', 'Inducci\u00f3n SSO (8 hrs certificadas)', 'Inducci\u00f3n ODI Mandante (18/04/2025)', 'Hoja de vida'],
     docs_miss: ['CIAFF (Cert. Insp. Ant. Faena y Func.)'],
     docs_pend: ['Licencia de conducir (requiere confirmaci\u00f3n)'],
-    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'pend',n:'Licencia conducir (si aplica)'}]
+    checklist: [
+      {t:'ok', n:'C\u00e9dula de identidad vigente'},
+      {t:'ok', n:'Contrato de trabajo firmado'},
+      {t:'ok', n:'Examen pre-ocupacional'},
+      {t:'ok', n:'Inducci\u00f3n SSO (8 hrs)'},
+      {t:'ok', n:'Inducci\u00f3n ODI (Mandante)'},
+      {t:'ok', n:'Hoja de vida del trabajador'},
+      {t:'miss', n:'CIAFF'},
+      {t:'pend', n:'Licencia conducir (si aplica)'}
+    ]
   },
   'pedro': {
-    name: 'Pedro Soto D\u00edaz', rut: '9.876.543-2', empresa: 'Mantenimientos Ltda', contrato: 'C-2023-088',
+    name: 'Pedro Soto D\u00edaz', rut: '9.876.543-2',
+    empresa: 'Mantenimientos Ltda', contrato: 'C-2023-088',
     docs_ok: ['C\u00e9dula identidad', 'Contrato trabajo', 'Inducci\u00f3n SSO', 'Hoja de vida', 'Inducci\u00f3n ODI'],
     docs_miss: ['Examen de altura vencido (emitido 05/11/2022, vigencia 2 a\u00f1os)', 'CIAFF'],
     docs_pend: ['Licencia de conducir'],
-    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'miss',n:'Examen pre-ocupacional (VENCIDO)'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'miss',n:'Licencia conducir'}]
+    checklist: [
+      {t:'ok', n:'C\u00e9dula de identidad vigente'},
+      {t:'ok', n:'Contrato de trabajo firmado'},
+      {t:'miss', n:'Examen pre-ocupacional (VENCIDO)'},
+      {t:'ok', n:'Inducci\u00f3n SSO (8 hrs)'},
+      {t:'ok', n:'Inducci\u00f3n ODI (Mandante)'},
+      {t:'ok', n:'Hoja de vida del trabajador'},
+      {t:'miss', n:'CIAFF'},
+      {t:'miss', n:'Licencia conducir'}
+    ]
   },
   'valentina': {
-    name: 'Valentina Cruz L\u00f3pez', rut: '14.555.666-7', empresa: 'Miner\u00eda Austral', contrato: 'C-2024-031',
+    name: 'Valentina Cruz L\u00f3pez', rut: '14.555.666-7',
+    empresa: 'Miner\u00eda Austral', contrato: 'C-2024-031',
     docs_ok: ['C\u00e9dula identidad', 'Hoja de vida', 'Examen pre-ocupacional'],
     docs_miss: ['Contrato de trabajo firmado', 'Inducci\u00f3n SSO', 'Inducci\u00f3n ODI', 'CIAFF'],
     docs_pend: ['Licencia de conducir'],
-    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'miss',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'miss',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'miss',n:'Inducci\u00f3n ODI (Mandante)'},{t:'ok',n:'Hoja de vida del trabajador'},{t:'miss',n:'CIAFF'},{t:'pend',n:'Licencia conducir'}]
+    checklist: [
+      {t:'ok', n:'C\u00e9dula de identidad vigente'},
+      {t:'miss', n:'Contrato de trabajo firmado'},
+      {t:'ok', n:'Examen pre-ocupacional'},
+      {t:'miss', n:'Inducci\u00f3n SSO (8 hrs)'},
+      {t:'miss', n:'Inducci\u00f3n ODI (Mandante)'},
+      {t:'ok', n:'Hoja de vida del trabajador'},
+      {t:'miss', n:'CIAFF'},
+      {t:'pend', n:'Licencia conducir'}
+    ]
   },
   'jorge': {
-    name: 'Jorge Vega M\u00e9ndez', rut: '16.777.888-3', empresa: 'Trans Andina SA', contrato: 'C-2022-067',
+    name: 'Jorge Vega M\u00e9ndez', rut: '16.777.888-3',
+    empresa: 'Trans Andina SA', contrato: 'C-2022-067',
     docs_ok: ['C\u00e9dula identidad', 'Contrato trabajo firmado', 'Examen pre-ocupacional', 'Inducci\u00f3n SSO', 'Inducci\u00f3n ODI', 'CIAFF', 'Licencia conducir clase B'],
     docs_miss: ['Hoja de vida actualizada'],
     docs_pend: [],
-    checklist: [{t:'ok',n:'C\u00e9dula de identidad vigente'},{t:'ok',n:'Contrato de trabajo firmado'},{t:'ok',n:'Examen pre-ocupacional'},{t:'ok',n:'Inducci\u00f3n SSO (8 hrs)'},{t:'ok',n:'Inducci\u00f3n ODI (Mandante)'},{t:'miss',n:'Hoja de vida del trabajador'},{t:'ok',n:'CIAFF'},{t:'ok',n:'Licencia conducir (Clase B)'}]
+    checklist: [
+      {t:'ok', n:'C\u00e9dula de identidad vigente'},
+      {t:'ok', n:'Contrato de trabajo firmado'},
+      {t:'ok', n:'Examen pre-ocupacional'},
+      {t:'ok', n:'Inducci\u00f3n SSO (8 hrs)'},
+      {t:'ok', n:'Inducci\u00f3n ODI (Mandante)'},
+      {t:'miss', n:'Hoja de vida del trabajador'},
+      {t:'ok', n:'CIAFF'},
+      {t:'ok', n:'Licencia conducir (Clase B)'}
+    ]
   }
 };
 
-var currentWorker = 'ana';
+// The PENDING checklist shown BEFORE analysis runs
+var CHECKLIST_PENDING = [
+  {t:'pend', n:'C\u00e9dula de identidad vigente'},
+  {t:'pend', n:'Contrato de trabajo firmado'},
+  {t:'pend', n:'Examen pre-ocupacional'},
+  {t:'pend', n:'Inducci\u00f3n SSO (8 hrs)'},
+  {t:'pend', n:'Inducci\u00f3n ODI (Mandante)'},
+  {t:'pend', n:'Hoja de vida del trabajador'},
+  {t:'pend', n:'CIAFF'},
+  {t:'pend', n:'Licencia conducir (si aplica)'}
+];
 
+var currentWorker = 'ana';
+var uploadedFiles = [];   // tracks real File objects for API mode
+var agentHasRun = false;  // gate: checklist stays pending until agent runs
+
+// On page load and on worker change — reset to PENDING
 function changeWorker(val) {
   currentWorker = val;
+  agentHasRun = false;
+  uploadedFiles = [];
+  document.getElementById('uploaded-docs-list').innerHTML = '';
   var w = WORKERS[val];
-  document.getElementById('checklist-worker-label').textContent = 'Caso: ' + w.name + ' \u2014 ' + w.empresa + ' \u2014 ' + w.contrato;
-  renderChecklist(w);
+  document.getElementById('checklist-worker-label').textContent =
+    'Caso: ' + w.name + ' \u2014 ' + w.empresa + ' \u2014 ' + w.contrato;
+  renderChecklist(CHECKLIST_PENDING);   // always start pending
   clearAgentLog();
 }
 
-function renderChecklist(w) {
+function renderChecklist(items) {
   var el = document.getElementById('doc-checklist');
   if (!el) return;
-  var icons = {ok:'&#9989;',miss:'&#10060;',pend:'&#9203;'};
-  var labels = {ok:'Validado',miss:'Faltante',pend:'Pendiente'};
-  var colors = {ok:'var(--g1)',miss:'var(--red)',pend:'var(--yellow)'};
-  el.innerHTML = w.checklist.map(function(d) {
-    return '<div class="dck-item ' + d.t + '"><span class="dck-ic">' + icons[d.t] + '</span><span class="dck-n">' + d.n + '</span><span class="dck-s" style="color:' + colors[d.t] + '">' + labels[d.t] + '</span></div>';
+  var icons  = {ok:'&#9989;', miss:'&#10060;', pend:'&#9203;'};
+  var labels = {ok:'Validado', miss:'Faltante', pend:'Pendiente'};
+  var colors = {ok:'var(--g1)', miss:'var(--red)', pend:'var(--yellow)'};
+  el.innerHTML = items.map(function(d) {
+    return '<div class="dck-item ' + d.t + '">' +
+      '<span class="dck-ic">' + icons[d.t] + '</span>' +
+      '<span class="dck-n">' + d.n + '</span>' +
+      '<span class="dck-s" style="color:' + colors[d.t] + '">' + labels[d.t] + '</span>' +
+    '</div>';
   }).join('');
 }
 
@@ -1841,132 +1905,344 @@ function selectWorkerAndAnalyze(workerKey) {
   var sel = document.getElementById('worker-select');
   if (sel) sel.value = workerKey;
   changeWorker(workerKey);
-  // Switch to analisis tab
   showTab('acr', 'analisis');
-  // Auto-run after short delay
-  setTimeout(runDocumentAgentIA, 300);
+  setTimeout(runDocumentAgentIA, 350);
 }
 
 function clearAgentLog() {
   var log = document.getElementById('agent-log');
-  if (log) log.innerHTML = '<span class="alog-t">// Log limpiado. Listo para nuevo an\u00e1lisis.</span>';
+  if (log) log.innerHTML =
+    '<span class="alog-t">// Agente listo.\n' +
+    '// Presion\u00e1 "\u25b6 Analizar con IA" para iniciar.\n' +
+    '// Con API Key: an\u00e1lisis real con Claude sobre los documentos subidos.\n' +
+    '// Sin API Key: simulaci\u00f3n demostrativa del proceso.</span>';
   var aiArea = document.getElementById('ai-response-area');
   if (aiArea) aiArea.style.display = 'none';
-  var exportBtn = document.getElementById('btn-export-analysis');
-  if (exportBtn) exportBtn.style.display = 'none';
-  var notifBtn = document.getElementById('btn-notif-empresa');
-  if (notifBtn) notifBtn.style.display = 'none';
-  var popupBtn = document.getElementById('btn-ver-popup-agent');
-  if (popupBtn) popupBtn.style.display = 'none';
+  ['btn-export-analysis','btn-notif-empresa','btn-ver-popup-agent'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
 }
 
 function appendLog(cls, text) {
   var log = document.getElementById('agent-log');
   if (!log) return;
-  var span = document.createElement('span');
-  span.className = cls;
-  span.textContent = text;
-  log.appendChild(span);
+  var sp = document.createElement('span');
+  sp.className = cls; sp.textContent = text;
+  log.appendChild(sp);
   log.appendChild(document.createElement('br'));
   log.scrollTop = log.scrollHeight;
 }
 
-function getTimestamp() {
-  var now = new Date();
-  return '[' + now.toTimeString().slice(0,8) + ']';
+function getTs() {
+  var n = new Date();
+  return '[' + n.toTimeString().slice(0,8) + ']';
 }
 
-// ── AGENT DOCUMENTAL REAL ────────────────────────────────────
+// ── MAIN AGENT RUNNER ────────────────────────────────────────
 function runDocumentAgentIA() {
   var w = WORKERS[currentWorker];
   if (!w) return;
-
-  var log = document.getElementById('agent-log');
   var btn = document.getElementById('btn-run-agent-ia');
-  if (!log || !btn) return;
-
-  log.innerHTML = '';
-  btn.disabled = true;
-  btn.textContent = 'Analizando...';
+  if (!btn) return;
 
   var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
-  var ts = getTimestamp();
 
-  // Step 1: show loading log
-  var steps = [
-    ['alog-t', ts + ' Iniciando an\u00e1lisis documental ' + (hasKey ? '(IA real)' : '(demo)') + '...'],
-    ['alog-t', ts + ' Cargando expediente: ' + w.name + ' (' + w.rut + ')'],
-    ['alog-t', ts + ' Empresa: ' + w.empresa + ' \u2014 Contrato: ' + w.contrato],
-    ['alog-t', ts + ' Verificando ' + w.checklist.length + ' requisitos documentales...'],
+  // Step 1: reset checklist to ALL PENDING
+  agentHasRun = false;
+  renderChecklist(CHECKLIST_PENDING);
+
+  // Clear log
+  var log = document.getElementById('agent-log');
+  if (log) log.innerHTML = '';
+  btn.disabled = true;
+  btn.textContent = 'Analizando\u2026';
+
+  if (hasKey && uploadedFiles.length > 0) {
+    runRealAnalysis(w, btn);
+  } else {
+    runSimulatedAnalysis(w, btn, hasKey);
+  }
+}
+
+// ── SIMULATED ANALYSIS ────────────────────────────────────────
+function runSimulatedAnalysis(w, btn, hasKey) {
+  var ts = getTs();
+  var mode = hasKey ? 'Sin documentos subidos \u2014 ejecutando simulaci\u00f3n' : 'Modo demo (sin API Key)';
+
+  var CHECKLIST_NAMES = [
+    'C\u00e9dula de identidad vigente',
+    'Contrato de trabajo firmado',
+    'Examen pre-ocupacional',
+    'Inducci\u00f3n SSO (8 hrs)',
+    'Inducci\u00f3n ODI (Mandante)',
+    'Hoja de vida del trabajador',
+    'CIAFF',
+    'Licencia conducir (si aplica)'
   ];
-  w.docs_ok.forEach(function(d) { steps.push(['alog-r', ts + ' \u2713 ' + d]); });
-  w.docs_miss.forEach(function(d) { steps.push(['alog-e', ts + ' \u2717 ' + d + ' \u2014 DOCUMENTO FALTANTE']); });
-  w.docs_pend.forEach(function(d) { steps.push(['alog-w', ts + ' \u26a0 ' + d]); });
 
-  var ok = w.docs_ok.length;
-  var miss = w.docs_miss.length;
-  var pend = w.docs_pend.length;
-  var total = ok + miss + pend;
-  var result = miss === 0 ? 'APROBADO' : (ok >= total * 0.75 ? 'OBSERVADO' : 'RECHAZADO');
-  var resultCls = miss === 0 ? 'alog-r' : (result === 'OBSERVADO' ? 'alog-w' : 'alog-e');
+  // Build the simulated result that matches worker data
+  var finalChecklist = CHECKLIST_NAMES.map(function(name) {
+    var inOk   = w.docs_ok.some(function(d){ return d.toLowerCase().indexOf(name.toLowerCase().split(' ')[0]) > -1 || name.toLowerCase().indexOf(d.toLowerCase().split(' ')[0]) > -1; });
+    var inMiss = w.docs_miss.some(function(d){ return d.toLowerCase().indexOf(name.toLowerCase().split(' ')[0]) > -1 || name.toLowerCase().indexOf(d.toLowerCase().split(' ')[0]) > -1; });
+    var base = w.checklist.find(function(c){ return c.n.toLowerCase().indexOf(name.toLowerCase().split(' ')[0]) > -1 || name.toLowerCase().indexOf(c.n.toLowerCase().split(' ')[0]) > -1; });
+    return { t: base ? base.t : 'pend', n: name };
+  });
 
-  steps.push(['alog-t', ts + ' ----------------------------------------']);
-  steps.push([resultCls, ts + ' RESULTADO: ' + result + ' (' + ok + '/' + total + ' documentos)']);
-  if (miss > 0) steps.push(['alog-t', ts + ' ACCI\u00d3N: Solicitar documento(s) faltante(s) a ' + w.empresa]);
+  // Build step sequence: intro + one step per doc + summary
+  var steps = [
+    {cls:'alog-t', txt: ts + ' ' + mode},
+    {cls:'alog-t', txt: ts + ' Iniciando an\u00e1lisis documental\u2026'},
+    {cls:'alog-t', txt: ts + ' Expediente: ' + w.name + ' (' + w.rut + ')'},
+    {cls:'alog-t', txt: ts + ' Empresa: ' + w.empresa + ' \u2014 Contrato: ' + w.contrato},
+    {cls:'alog-t', txt: ts + ' Verificando ' + CHECKLIST_NAMES.length + ' requisitos\u2026'},
+    {cls:'alog-t', txt: ts + ' \u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015', checklistReveal: null},
+  ];
 
+  finalChecklist.forEach(function(item, idx) {
+    var logCls = item.t === 'ok' ? 'alog-r' : item.t === 'miss' ? 'alog-e' : 'alog-w';
+    var prefix = item.t === 'ok' ? '\u2713' : item.t === 'miss' ? '\u2717' : '\u26a0';
+    var suffix = item.t === 'ok' ? ' \u2014 OK' : item.t === 'miss' ? ' \u2014 FALTANTE' : ' \u2014 PENDIENTE';
+    steps.push({ cls: logCls, txt: ts + ' ' + prefix + ' ' + item.n + suffix, checklistReveal: idx });
+  });
+
+  var okCount  = finalChecklist.filter(function(x){ return x.t==='ok'; }).length;
+  var missCount= finalChecklist.filter(function(x){ return x.t==='miss'; }).length;
+  var pendCount= finalChecklist.filter(function(x){ return x.t==='pend'; }).length;
+  var total    = finalChecklist.length;
+  var result   = missCount === 0 ? 'APROBADO' : (okCount >= total*0.75 ? 'OBSERVADO' : 'RECHAZADO');
+  var resCls   = missCount === 0 ? 'alog-r' : result === 'OBSERVADO' ? 'alog-w' : 'alog-e';
+
+  steps.push({cls:'alog-t', txt: ts + ' \u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015'});
+  steps.push({cls: resCls,  txt: ts + ' RESULTADO: ' + result + ' (' + okCount + '/' + total + ' documentos)'});
+  if (missCount > 0) {
+    var missNames = finalChecklist.filter(function(x){return x.t==='miss';}).map(function(x){return x.n;});
+    steps.push({cls:'alog-t', txt: ts + ' FALTANTES: ' + missNames.join(', ')});
+    steps.push({cls:'alog-t', txt: ts + ' ACCI\u00d3N: Solicitar a ' + w.empresa + ' los documentos faltantes'});
+    steps.push({cls:'alog-t', txt: ts + ' Notificaci\u00f3n autom\u00e1tica enviada a administrador ' + w.contrato});
+  } else {
+    steps.push({cls:'alog-r', txt: ts + ' Expediente completo \u2014 Aprobado para acreditaci\u00f3n de faena'});
+  }
+
+  // Animate steps; reveal checklist items progressively
+  var liveChecklist = CHECKLIST_PENDING.map(function(x){ return {t:'pend', n:x.n}; });
   var i = 0;
-  function addStep() {
+  function next() {
     if (i >= steps.length) {
+      // Done — show final state
+      agentHasRun = true;
+      renderChecklist(finalChecklist);
       btn.disabled = false;
       btn.textContent = '\u25b6 Analizar con IA';
       document.getElementById('btn-notif-empresa').style.display = '';
       document.getElementById('btn-ver-popup-agent').style.display = '';
       document.getElementById('btn-export-analysis').style.display = '';
-
-      if (hasKey) {
-        callAnthropicDocAgent(w, result, ok, total);
-      } else {
-        showDemoResponse(w, result, ok, total);
-      }
+      showDemoResponse(w, result, okCount, total);
       return;
     }
-    appendLog(steps[i][0], steps[i][1]);
+    var step = steps[i];
+    appendLog(step.cls, step.txt);
+    // Progressive checklist update
+    if (typeof step.checklistReveal === 'number') {
+      liveChecklist[step.checklistReveal] = finalChecklist[step.checklistReveal];
+      renderChecklist(liveChecklist.slice());
+    }
     i++;
-    setTimeout(addStep, hasKey ? 120 : 200);
+    setTimeout(next, 220);
   }
-  addStep();
+  next();
 }
 
-function showDemoResponse(w, result, ok, total) {
-  var miss = w.docs_miss.join(', ');
-  var text = '[DEMO \u2014 sin API Key] ' + result + ': El expediente de ' + w.name + ' (' + w.rut + ') presenta ' + ok + '/' + total + ' documentos v\u00e1lidos.' + (miss ? ' Documentos faltantes: ' + miss + '. Se recomienda notificar a ' + w.empresa + ' para regularizaci\u00f3n.' : ' Expediente completo. Aprobado para acreditaci\u00f3n.');
-  showAiResponse(text, false);
-}
+// ── REAL ANALYSIS WITH API + UPLOADED FILES ──────────────────
+async function runRealAnalysis(w, btn) {
+  var ts = getTs();
+  var log = document.getElementById('agent-log');
+  if (log) log.innerHTML = '';
 
-async function callAnthropicDocAgent(w, result, ok, total) {
-  var aiArea = document.getElementById('ai-response-area');
-  var aiText = document.getElementById('ai-response-text');
-  if (aiArea) aiArea.style.display = 'block';
-  if (aiText) aiText.innerHTML = '<span style="color:var(--mid);font-style:italic">Claude est\u00e1 analizando el expediente...</span>';
+  appendLog('alog-t', ts + ' API Key activa \u2014 An\u00e1lisis real con Claude Sonnet');
+  appendLog('alog-t', ts + ' Expediente: ' + w.name + ' (' + w.rut + ')');
+  appendLog('alog-t', ts + ' Empresa: ' + w.empresa + ' \u2014 ' + w.contrato);
+  appendLog('alog-t', ts + ' Documentos subidos: ' + uploadedFiles.length);
+  appendLog('alog-t', ts + ' Preparando documentos para el agente\u2026');
 
-  var prompt = 'Eres un agente especializado en compliance laboral chileno. Analiz\u00e1 el siguiente expediente de acreditaci\u00f3n de faena:\n\nTrabajador: ' + w.name + '\nRUT: ' + w.rut + '\nEmpresa: ' + w.empresa + '\nContrato: ' + w.contrato + '\n\nDocumentos validados: ' + w.docs_ok.join(', ') + '\nDocumentos faltantes: ' + (w.docs_miss.join(', ') || 'Ninguno') + '\nDocumentos pendientes de confirmaci\u00f3n: ' + (w.docs_pend.join(', ') || 'Ninguno') + '\n\nResultado preliminar: ' + result + ' (' + ok + '/' + (ok + w.docs_miss.length + w.docs_pend.length) + ' documentos).\n\nPor favor redact\u00e1 un diagn\u00f3stico profesional en espa\u00f1ol (3-4 oraciones) indicando: (1) estado del expediente, (2) impacto de los documentos faltantes seg\u00fan la normativa laboral chilena, (3) acci\u00f3n recomendada para el l\u00edder de servicio. S\u00e9 conciso y profesional.';
+  // Build base64 content array from uploaded files
+  var fileContents = [];
+  try {
+    for (var fi = 0; fi < uploadedFiles.length; fi++) {
+      var file = uploadedFiles[fi];
+      appendLog('alog-t', ts + ' Leyendo: ' + file.name + ' (' + (file.size/1024).toFixed(0) + ' KB)');
+      var b64 = await fileToBase64(file);
+      var mediaType = file.type || 'application/octet-stream';
+      // Only send images and PDFs to Claude
+      if (mediaType.startsWith('image/') || mediaType === 'application/pdf') {
+        fileContents.push({ name: file.name, b64: b64, type: mediaType });
+      } else {
+        fileContents.push({ name: file.name, b64: null, type: mediaType });
+      }
+    }
+  } catch(e) {
+    appendLog('alog-e', ts + ' Error leyendo archivos: ' + e.message);
+    btn.disabled = false; btn.textContent = '\u25b6 Analizar con IA';
+    return;
+  }
+
+  appendLog('alog-t', ts + ' Enviando a Claude para an\u00e1lisis\u2026');
+  appendLog('alog-t', ts + ' \u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015');
+
+  // Build message content — text + file images/PDFs
+  var msgContent = [];
+
+  // Add files that Claude can read
+  fileContents.forEach(function(fc) {
+    if (fc.b64 && fc.type.startsWith('image/')) {
+      msgContent.push({ type:'image', source:{ type:'base64', media_type:fc.type, data:fc.b64.split(',')[1] || fc.b64 } });
+    } else if (fc.b64 && fc.type === 'application/pdf') {
+      msgContent.push({ type:'document', source:{ type:'base64', media_type:'application/pdf', data:fc.b64.split(',')[1] || fc.b64 } });
+    }
+  });
+
+  var fileNamesList = uploadedFiles.map(function(f){ return f.name; }).join(', ');
+
+  msgContent.push({ type:'text', text:
+    'Sos un agente de compliance laboral chileno especializado en acreditaci\u00f3n de trabajadores en faena.\n\n' +
+    'Estoy procesando el expediente de:\n' +
+    '- Trabajador: ' + w.name + '\n' +
+    '- RUT: ' + w.rut + '\n' +
+    '- Empresa: ' + w.empresa + '\n' +
+    '- Contrato: ' + w.contrato + '\n\n' +
+    'Archivos subidos: ' + fileNamesList + '\n\n' +
+    'La lista de documentos requeridos para acreditaci\u00f3n de ingreso a faena es:\n' +
+    '1. C\u00e9dula de identidad vigente\n' +
+    '2. Contrato de trabajo firmado\n' +
+    '3. Examen pre-ocupacional (apto y vigente)\n' +
+    '4. Inducci\u00f3n SSO (m\u00ednimo 8 hrs certificadas)\n' +
+    '5. Inducci\u00f3n ODI Mandante\n' +
+    '6. Hoja de vida del trabajador\n' +
+    '7. CIAFF (Certificado de Inspecci\u00f3n de Antecedentes de Faena y Funciones)\n' +
+    '8. Licencia de conducir (si aplica al cargo)\n\n' +
+    'Por favor:\n' +
+    '1. Analiz\u00e1 los documentos adjuntos e identific\u00e1 a cu\u00e1l requisito corresponde cada uno.\n' +
+    '2. Determin\u00e1 el estado de cada \u00edtem del checklist: VALIDADO, FALTANTE o PENDIENTE.\n' +
+    '3. Detect\u00e1 cualquier observaci\u00f3n relevante (ej: documento vencido, firma faltante, datos incorrectos).\n' +
+    '4. Emit\u00ed un veredicto final: APROBADO, OBSERVADO o RECHAZADO.\n\n' +
+    'Respond\u00e9 en formato JSON estrictamente as\u00ed (sin markdown, sin texto extra):\n' +
+    '{\n' +
+    '  "checklist": [\n' +
+    '    {"item": "C\u00e9dula de identidad vigente", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Contrato de trabajo firmado", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Examen pre-ocupacional", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Inducci\u00f3n SSO (8 hrs)", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Inducci\u00f3n ODI (Mandante)", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Hoja de vida del trabajador", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "CIAFF", "estado": "ok|miss|pend", "observacion": "texto o null"},\n' +
+    '    {"item": "Licencia conducir (si aplica)", "estado": "ok|miss|pend", "observacion": "texto o null"}\n' +
+    '  ],\n' +
+    '  "resultado": "APROBADO|OBSERVADO|RECHAZADO",\n' +
+    '  "diagnostico": "Texto del diagn\u00f3stico profesional en 3-5 oraciones",\n' +
+    '  "accion": "Texto de la acci\u00f3n recomendada"\n' +
+    '}'
+  });
 
   try {
     var resp = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-5', max_tokens: 400, messages: [{ role: 'user', content: prompt }] })
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5',
+        max_tokens: 1200,
+        messages: [{ role: 'user', content: msgContent }]
+      })
     });
+
     var data = await resp.json();
-    if (data.content && data.content[0]) {
-      showAiResponse(data.content[0].text, true);
-      appendLog('alog-r', getTimestamp() + ' \u2713 An\u00e1lisis IA completado por Claude.');
-    } else {
-      showAiResponse('Error: ' + JSON.stringify(data.error || data), false);
+    if (!data.content || !data.content[0]) {
+      throw new Error(JSON.stringify(data.error || data));
     }
+
+    var rawText = data.content[0].text.trim();
+    // Strip any markdown code fences
+    rawText = rawText.replace(/^```json\s*/,'').replace(/^```\s*/,'').replace(/\s*```$/,'').trim();
+
+    var parsed = JSON.parse(rawText);
+    processRealResult(w, parsed, btn, ts);
+
   } catch(e) {
-    showAiResponse('Error de conexi\u00f3n: ' + e.message + '. Verific\u00e1 tu API Key y conexi\u00f3n.', false);
+    appendLog('alog-e', ts + ' Error: ' + e.message);
+    appendLog('alog-w', ts + ' Cambiando a modo simulaci\u00f3n\u2026');
+    btn.disabled = false; btn.textContent = '\u25b6 Analizar con IA';
+    runSimulatedAnalysis(w, btn, true);
   }
+}
+
+function processRealResult(w, parsed, btn, ts) {
+  var checklist = parsed.checklist || [];
+  var resultado = parsed.resultado || 'OBSERVADO';
+  var diagnostico = parsed.diagnostico || '';
+  var accion = parsed.accion || '';
+
+  // Animate checklist reveal line by line
+  var liveChecklist = CHECKLIST_PENDING.map(function(x){ return {t:'pend', n:x.n}; });
+  var finalCL = checklist.map(function(item) {
+    return { t: item.estado, n: item.item, obs: item.observacion };
+  });
+  // Pad if short
+  while (finalCL.length < 8) finalCL.push({t:'pend', n:'Documento ' + (finalCL.length+1), obs:null});
+
+  var i = 0;
+  function revealNext() {
+    if (i >= finalCL.length) {
+      // All revealed
+      agentHasRun = true;
+      var resCls = resultado === 'APROBADO' ? 'alog-r' : resultado === 'RECHAZADO' ? 'alog-e' : 'alog-w';
+      appendLog('alog-t', ts + ' \u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015');
+      appendLog(resCls, ts + ' RESULTADO CLAUDE: ' + resultado);
+      if (accion) appendLog('alog-t', ts + ' ACCI\u00d3N: ' + accion);
+
+      btn.disabled = false; btn.textContent = '\u25b6 Analizar con IA';
+      document.getElementById('btn-notif-empresa').style.display = '';
+      document.getElementById('btn-ver-popup-agent').style.display = '';
+      document.getElementById('btn-export-analysis').style.display = '';
+
+      // Show AI response
+      var okCount = finalCL.filter(function(x){return x.t==='ok';}).length;
+      showAiResponse('[IA REAL \u2014 Claude analiz\u00f3 tus documentos] ' + diagnostico + (accion ? '\n\nAcci\u00f3n recomendada: ' + accion : ''), true);
+      return;
+    }
+    var item = finalCL[i];
+    var logCls = item.t === 'ok' ? 'alog-r' : item.t === 'miss' ? 'alog-e' : 'alog-w';
+    var prefix = item.t === 'ok' ? '\u2713' : item.t === 'miss' ? '\u2717' : '\u26a0';
+    var suffix = item.obs ? ' \u2014 ' + item.obs : (item.t === 'ok' ? ' \u2014 OK' : item.t === 'miss' ? ' \u2014 FALTANTE' : ' \u2014 PENDIENTE');
+    appendLog(logCls, ts + ' ' + prefix + ' ' + item.n + suffix);
+    liveChecklist[i] = { t: item.t, n: item.n };
+    renderChecklist(liveChecklist.slice());
+    i++;
+    setTimeout(revealNext, 280);
+  }
+  revealNext();
+}
+
+// Convert File to base64
+function fileToBase64(file) {
+  return new Promise(function(resolve, reject) {
+    var r = new FileReader();
+    r.onload = function(){ resolve(r.result); };
+    r.onerror = function(){ reject(new Error('Error reading ' + file.name)); };
+    r.readAsDataURL(file);
+  });
+}
+
+function showDemoResponse(w, result, ok, total) {
+  var miss = w.docs_miss.join(', ');
+  var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
+  var badge = hasKey ? '[SIMULACI\u00d3N \u2014 sube documentos para an\u00e1lisis real] ' : '[DEMO \u2014 sin API Key] ';
+  var text = badge + result + ': El expediente de ' + w.name + ' (' + w.rut + ') presenta ' + ok + '/' + total + ' documentos v\u00e1lidos.' +
+    (miss ? ' Documentos faltantes: ' + miss + '. Se recomienda notificar a ' + w.empresa + ' para regularizaci\u00f3n.' : ' Expediente completo. Aprobado para acreditaci\u00f3n.');
+  showAiResponse(text, false);
 }
 
 function showAiResponse(text, isReal) {
@@ -1974,7 +2250,9 @@ function showAiResponse(text, isReal) {
   var aiText = document.getElementById('ai-response-text');
   if (aiArea) aiArea.style.display = 'block';
   if (aiText) {
-    var badge = isReal ? '<span style="display:inline-block;background:var(--g1);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">IA REAL</span>' : '<span style="display:inline-block;background:var(--mid);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">DEMO</span>';
+    var badge = isReal
+      ? '<span style="display:inline-block;background:var(--g1);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">IA REAL</span>'
+      : '<span style="display:inline-block;background:var(--mid);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:6px;vertical-align:middle">DEMO</span>';
     aiText.innerHTML = badge + text.replace(/\n/g, '<br>');
   }
 }
@@ -1987,77 +2265,100 @@ function notifEmpresa() {
 function verAnalisisEnPopup() {
   var w = WORKERS[currentWorker];
   if (!w) return;
-  var ok = w.docs_ok.length;
-  var total = w.checklist.length;
-  var miss = w.docs_miss.length;
-  var result = miss === 0 ? 'APROBADO' : (ok >= total * 0.75 ? 'OBSERVADO' : 'RECHAZADO');
-  var color = miss === 0 ? 'var(--g1)' : (result === 'OBSERVADO' ? 'var(--yellow)' : 'var(--red)');
+  var checklist = agentHasRun ? w.checklist : CHECKLIST_PENDING;
+  var ok   = checklist.filter(function(x){return x.t==='ok';}).length;
+  var miss = checklist.filter(function(x){return x.t==='miss';}).length;
+  var total= checklist.length;
+  var result  = !agentHasRun ? 'PENDIENTE' : miss===0 ? 'APROBADO' : (ok>=total*0.75 ? 'OBSERVADO' : 'RECHAZADO');
+  var color   = result==='APROBADO'?'var(--g1)':result==='RECHAZADO'?'var(--red)':result==='PENDIENTE'?'var(--mid)':'var(--yellow)';
 
   openKiraPopup('An\u00e1lisis Documental \u2014 ' + w.name, w.empresa + ' \u2014 ' + w.contrato, function(body) {
-    var rows = w.checklist.map(function(d) {
-      var icons = {ok:'\u2705',miss:'\u274c',pend:'\u23f3'};
-      var labs = {ok:'Validado',miss:'Faltante',pend:'Pendiente'};
-      var cols = {ok:'var(--g1)',miss:'var(--red)',pend:'var(--yellow)'};
-      return ['<span style="font-size:14px">' + icons[d.t] + '</span>', d.n, '<strong style="color:' + cols[d.t] + '">' + labs[d.t] + '</strong>'];
+    var rows = checklist.map(function(d) {
+      var icons = {ok:'\u2705', miss:'\u274c', pend:'\u23f3'};
+      var labs  = {ok:'Validado', miss:'Faltante', pend:'Pendiente'};
+      var cols  = {ok:'var(--g1)', miss:'var(--red)', pend:'var(--yellow)'};
+      return ['<span style="font-size:14px">'+icons[d.t]+'</span>', d.n, '<strong style="color:'+cols[d.t]+'">'+labs[d.t]+'</strong>'];
     });
-
     body.innerHTML =
       '<div class="kp-kpi-grid">' +
-        kpKPI(ok + '/' + total, 'Documentos v\u00e1lidos', ok === total ? 'var(--g1)' : 'var(--yellow)') +
-        kpKPI(miss, 'Faltantes', miss > 0 ? 'var(--red)' : 'var(--g1)') +
-        kpKPI(w.docs_pend.length, 'Pendientes confirmaci\u00f3n', 'var(--yellow)') +
-        kpKPI('<span style="font-size:13px;font-weight:800">' + result + '</span>', 'Resultado', color) +
+        kpKPI(ok+'/'+total, 'Documentos v\u00e1lidos', ok===total?'var(--g1)':'var(--yellow)') +
+        kpKPI(miss, 'Faltantes', miss>0?'var(--red)':'var(--g1)') +
+        kpKPI(checklist.filter(function(x){return x.t==='pend';}).length, 'Pendientes', 'var(--yellow)') +
+        kpKPI('<span style="font-size:13px;font-weight:800">'+result+'</span>', 'Resultado', color) +
       '</div>' +
       '<div class="kp-tabs">' +
         '<button class="kp-tab active" onclick="kpSwitch(this,\'agd\',\'check\')">Checklist</button>' +
         '<button class="kp-tab" onclick="kpSwitch(this,\'agd\',\'resumen\')">Resumen</button>' +
       '</div>' +
-      '<div id="agd-check" class="kp-section active">' + kpTable(['\u00cdcono', 'Documento', 'Estado'], rows) + '</div>' +
+      '<div id="agd-check" class="kp-section active">' + kpTable(['\u00cdcono','Documento','Estado'], rows) + '</div>' +
       '<div id="agd-resumen" class="kp-section">' +
         '<div style="display:flex;flex-direction:column;gap:10px;padding:4px 0">' +
-          '<div><div style="font-size:11px;font-weight:700;color:var(--mid);margin-bottom:4px">DOCUMENTOS VALIDADOS</div>' +
-          w.docs_ok.map(function(d){ return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)">\u2705 ' + d + '</div>'; }).join('') + '</div>' +
-          (miss > 0 ? '<div><div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:4px">DOCUMENTOS FALTANTES</div>' + w.docs_miss.map(function(d){ return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #FFCDD2;color:var(--red)">\u274c ' + d + '</div>'; }).join('') + '</div>' : '') +
+          (ok>0 ? '<div><div style="font-size:11px;font-weight:700;color:var(--g1);margin-bottom:4px">VALIDADOS</div>' + checklist.filter(function(x){return x.t==='ok';}).map(function(d){return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)">\u2705 '+d.n+'</div>';}).join('') + '</div>' : '') +
+          (miss>0 ? '<div><div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:4px">FALTANTES</div>' + checklist.filter(function(x){return x.t==='miss';}).map(function(d){return '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #FFCDD2;color:var(--red)">\u274c '+d.n+'</div>';}).join('') + '</div>' : '') +
         '</div>' +
       '</div>' +
-      '<div class="kp-insight"><strong>Acci\u00f3n recomendada:</strong> ' + (miss === 0 ? 'Expediente completo. Aprobar acreditaci\u00f3n de ' + w.name + ' para ingreso a faena.' : 'Solicitar a ' + w.empresa + ' los documentos faltantes (' + w.docs_miss.join(', ') + ') antes de aprobar el ingreso de ' + w.name + ' a faena. No puede ingresar sin CIAFF.') + '</div>';
+      '<div class="kp-insight"><strong>Acci\u00f3n recomendada:</strong> ' +
+        (result==='PENDIENTE' ? 'Ejecut\u00e1 el an\u00e1lisis antes de ver el resultado.' :
+         miss===0 ? 'Expediente completo. Aprobar acreditaci\u00f3n de '+w.name+' para ingreso a faena.' :
+         'Solicitar a '+w.empresa+' los documentos faltantes ('+checklist.filter(function(x){return x.t==='miss';}).map(function(x){return x.n;}).join(', ')+') antes de aprobar el ingreso de '+w.name+' a faena.') +
+      '</div>';
   });
 }
 
 function handleDocUpload(e) {
   var files = Array.from(e.target.files);
+  // Store for API use
+  files.forEach(function(f){ uploadedFiles.push(f); });
+
   var list = document.getElementById('uploaded-docs-list');
   if (!list || !files.length) return;
+
   files.forEach(function(f) {
     var item = document.createElement('div');
-    item.className = 'di';
-    item.style.marginBottom = '5px';
-    item.innerHTML = '<span style="font-size:16px">\ud83d\udcc4</span><div style="flex:1"><div style="font-size:11.5px;font-weight:600">' + f.name + '</div><div class="tm">Subido \u2014 clasificando con IA...</div></div><span class="p pw">Procesando</span>';
+    item.className = 'di'; item.style.marginBottom = '5px';
+    item.innerHTML =
+      '<span style="font-size:16px">\ud83d\udcc4</span>' +
+      '<div style="flex:1"><div style="font-size:11.5px;font-weight:600">'+f.name+'</div>' +
+      '<div class="tm">'+( (f.size/1024).toFixed(0) )+' KB \u2014 listo para an\u00e1lisis</div></div>' +
+      '<span class="p po">En cola</span>';
     list.appendChild(item);
-    setTimeout(function() {
-      var s = item.querySelector('.p');
-      if (s) { s.className = 'p po'; s.textContent = 'Recibido'; }
-      var m = item.querySelector('.tm');
-      if (m) m.textContent = 'Clasificado: ' + (f.name.toLowerCase().includes('ciaff') ? 'CIAFF detectado \u2014 agregado al expediente' : 'Documento laboral');
-      // Auto-update checklist if CIAFF detected
-      if (f.name.toLowerCase().includes('ciaff')) {
-        var w = WORKERS[currentWorker];
-        if (w) {
-          w.docs_miss = w.docs_miss.filter(function(d){ return !d.includes('CIAFF'); });
-          w.docs_ok.push('CIAFF (subido ' + new Date().toLocaleDateString('es-CL') + ')');
-          w.checklist = w.checklist.map(function(d){ return d.n.includes('CIAFF') ? {t:'ok',n:'CIAFF (reci\u00e9n cargado)'} : d; });
-          renderChecklist(w);
-          showToast('\u2713 CIAFF detectado y agregado al expediente');
+
+    // Auto-update checklist item if filename hints at a doc type (UX)
+    var fn = f.name.toLowerCase();
+    var hints = [
+      {k:'ciaff', n:'CIAFF'},
+      {k:'cedula', n:'C\u00e9dula de identidad vigente'},
+      {k:'contrato', n:'Contrato de trabajo firmado'},
+      {k:'examen', n:'Examen pre-ocupacional'},
+      {k:'sso', n:'Inducci\u00f3n SSO (8 hrs)'},
+      {k:'odi', n:'Inducci\u00f3n ODI (Mandante)'},
+      {k:'hoja', n:'Hoja de vida del trabajador'},
+      {k:'licencia', n:'Licencia conducir (si aplica)'},
+    ];
+    hints.forEach(function(h) {
+      if (fn.indexOf(h.k) > -1) {
+        // Mark that item as "uploaded" in checklist if not yet run
+        if (!agentHasRun) {
+          var el = document.getElementById('doc-checklist');
+          if (!el) return;
+          var items = el.querySelectorAll('.dck-item');
+          items.forEach(function(row) {
+            if (row.querySelector('.dck-n') && row.querySelector('.dck-n').textContent === h.n) {
+              row.querySelector('.dck-ic').innerHTML = '\ud83d\udcc4';
+              row.querySelector('.dck-s').textContent = 'Subido';
+              row.querySelector('.dck-s').style.color = 'var(--mid)';
+            }
+          });
         }
       }
-    }, 2000);
+    });
   });
 }
 
 // ── KIRA WITH REAL ANTHROPIC API ────────────────────────────
 var kiraConversationHistory = [];
 
-var KIRA_SYSTEM_PROMPT = 'Sos KIRA (Knowledge Intelligence Risk Advisor), el asistente de inteligencia artificial de la plataforma Labor Intelligence v1.4 de T&L Solution. Tu especialidad es el compliance laboral chileno y la gesti\u00f3n de contratos de empresas contratistas y subcontratistas.\n\nTen\u00e9s acceso a los siguientes datos del portafolio actual:\n\nCONTRATOS ACTIVOS:\n- C-2024-001: Constructora JMC | 450 trabajadores | Brechas: Remun. $6M + Causa O-2024-1234 $4.2M + IC Sindicato N\u00b01 vence 05/06/2025 (1.240 trab.) + 12 brechas HSE\n- C-2024-015: Servicios Atacama | 320 trabajadores | F30-1 observado $770K | 3 credenciales vencidas | 12 por vencer en 7 d\u00edas\n- C-2023-088: Mantenimientos Ltda | 180 trabajadores | Cumplimiento 98%\n- C-2024-022: Ingenier\u00eda del Norte | 620 trabajadores | IC Uni\u00f3n Norte vence 19/07/2025\n- C-2022-067: Trans Andina SA | 280 trabajadores | Cierre: 7 finiquitos sin dep\u00f3sito $4.8M + Causa O-2024-0892 $1.8M + Brecha remun. $1.1M\n- C-2024-031: Miner\u00eda Austral | 290 trabajadores | 8 brechas HSE | Causa nueva O-2025-0102 $1.1M\n- C-2023-099: LogiMiner\u00eda Ltda | 185 trabajadores | Brecha previsi\u00f3n $880K\n\nESTAD\u00cdSTICAS GLOBALES:\n- 14.382 trabajadores acreditados | 387 empresas | 34 causas judiciales activas ($18.4M) | 7 alertas cr\u00edticas\n\nRespond\u00e9 siempre en espa\u00f1ol, de forma concisa y profesional. Cuando corresponda, mencion\u00e1 los n\u00fameros de contrato y montos espec\u00edficos. Si el usuario pregunta algo fuera de tu dominio, indicalo amablemente.';
+var KIRA_SYSTEM_PROMPT = 'Sos KIRA (Knowledge Intelligence Risk Advisor), el asistente de inteligencia artificial de la plataforma Labor Intelligence v1.5 de T&L Solution. Tu especialidad es el compliance laboral chileno y la gesti\u00f3n de contratos de empresas contratistas y subcontratistas.\n\nTen\u00e9s acceso a los siguientes datos del portafolio actual:\n\nCONTRATOS ACTIVOS:\n- C-2024-001: Constructora JMC | 450 trabajadores | Brechas: Remun. $6M + Causa O-2024-1234 $4.2M + IC Sindicato N\u00b01 vence 05/06/2025 (1.240 trab.) + 12 brechas HSE\n- C-2024-015: Servicios Atacama | 320 trabajadores | F30-1 observado $770K | 3 credenciales vencidas | 12 por vencer en 7 d\u00edas\n- C-2023-088: Mantenimientos Ltda | 180 trabajadores | Cumplimiento 98%\n- C-2024-022: Ingenier\u00eda del Norte | 620 trabajadores | IC Uni\u00f3n Norte vence 19/07/2025\n- C-2022-067: Trans Andina SA | 280 trabajadores | Cierre: 7 finiquitos sin dep\u00f3sito $4.8M + Causa O-2024-0892 $1.8M + Brecha remun. $1.1M\n- C-2024-031: Miner\u00eda Austral | 290 trabajadores | 8 brechas HSE | Causa nueva O-2025-0102 $1.1M\n- C-2023-099: LogiMiner\u00eda Ltda | 185 trabajadores | Brecha previsi\u00f3n $880K\n\nESTAD\u00cdSTICAS GLOBALES:\n- 14.382 trabajadores acreditados | 387 empresas | 34 causas judiciales activas ($18.4M) | 7 alertas cr\u00edticas\n\nRespond\u00e9 siempre en espa\u00f1ol, de forma concisa y profesional. Cuando corresponda, mencion\u00e1 los n\u00fameros de contrato y montos espec\u00edficos. Si el usuario pregunta algo fuera de tu dominio, indicalo amablemente.';
 
 async function sendKiraWithAPI(userMsg) {
   var hasKey = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY.startsWith('sk-ant');
